@@ -6,9 +6,9 @@ Create automated or manually triggered airdrops with configurable rarity tiers, 
 
 ## Current Version
 
-**Airdrops v3.0.6**
+**Airdrops v3.0.6-BETA**
 
-v3.0.6 introduces the foundation of the new configurable **Boss and Event Framework**, allowing server owners to create custom bosses and encounters through YAML configuration files.
+v3.0.6-BETA introduces the foundation of the new configurable **Boss and Event Framework**, allowing server owners to create custom bosses and encounters through YAML configuration files.
 
 ## Features
 
