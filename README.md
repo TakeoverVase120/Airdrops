@@ -91,11 +91,11 @@ Players claim drops by interacting with the landed crate and following its promp
 | `/airdrop clear` | Clears the active drop/arena while retaining the automatic schedule. Cleanup safety checks still apply. |
 | `/airdrop info` | Reports the active drop, including its location. |
 | `/airdrop reload` | Reloads supported settings/content. Check console validation messages. |
-| `/airdrop test <common|rare|epic|legendary>` | Attempts a test drop using loaded terrain and configured distance limits; see the placement section. Requires at least one online player. |
+| `/airdrop test <common\|rare\|epic\|legendary>` | Attempts a test drop using loaded terrain and configured distance limits; see the placement section. Requires at least one online player. |
 | `/airdrop landmarks [rarity]` | Lists installed landmark IDs and whether landmarks are enabled. |
 | `/airdrop landmark <id>` | In-game only: attempts that landmark near the command sender. Needs available schematic, enabled structures and suitable loaded ground. |
-| `/airdrop history [id-prefix|boss-type]` | Shows up to ten matching boss-history entries, outcomes and rankings. |
-| `/airdrop utility <remote|beacon|trophy> [player]` | Gives a utility item. Target must be online and have inventory space. Console must name a player. |
+| `/airdrop history [id-prefix\|boss-type]` | Shows up to ten matching boss-history entries, outcomes and rankings. |
+| `/airdrop utility <remote\|beacon\|trophy> [player]` | Gives a utility item. Target must be online and have inventory space. Console must name a player. |
 | `/airdrop loot list <rarity> [page]` | Lists loaded loot entry IDs. |
 | `/airdrop loot give <rarity> <entry-id> [player]` | Gives a specific loaded loot entry; needs inventory space. Console must name a player. |
 | `/airdrop loot roll <rarity> <1-54> [player]` | Gives random rolls from the selected loot pool; needs inventory space. Console must name a player. |
@@ -104,17 +104,17 @@ Players claim drops by interacting with the landed crate and following its promp
 | `/adadmin` | In-game owner control panel. |
 | `/adadmin edit <file> <key> <value>` | In-game: edits an existing allowed content value with a backup. Review and reload content afterward. |
 | `/advisuals refresh <player>` | Refreshes an online player's recognised item visuals. |
-| `/adexchange history <online-player|UUID>` | Reviews another player's exchange history; offline lookup uses UUID. |
+| `/adexchange history <online-player\|UUID>` | Reviews another player's exchange history; offline lookup uses UUID. |
 | `/adexchange give <player> <currency-or-landmark-ID> <1-2304>` | Gives recognised exchange items to an online player with room. |
-| `/adrewards give <player> <common|rare|epic|legendary> <1-100>` | Credits packs to an online player's reward inbox. |
-| `/adrewards givegear <player> <dawnkeeper|starforged> <helmet|chestplate|leggings|boots>` | Delivers exclusive gear or saves it to the reward inbox. Existing pending rewards must be collected first. |
+| `/adrewards give <player> <common\|rare\|epic\|legendary> <1-100>` | Credits packs to an online player's reward inbox. |
+| `/adrewards givegear <player> <dawnkeeper\|starforged> <helmet\|chestplate\|leggings\|boots>` | Delivers exclusive gear or saves it to the reward inbox. Existing pending rewards must be collected first. |
 | `/adrewards fragments <player> <1-10000>` | Credits an online player's fragments. |
 | `/adrewards review <player>` | Shows pending reward/receipt and recycling-review state. |
 | `/adrewards resetachievements confirm` | **Resets all achievement progress and achievement claims**, with a backup. Retains inventories, bank, salvage, packs and weeklies. |
 | `/adeclipse start [world] [variant]` | Starts an Eclipse event. Console must specify a world; specify world before variant. Bypasses chance/cooldown only. |
 | `/adeclipse stop [world]` | Ends an Eclipse event. Console must specify a world. |
 | `/adeclipse reload` | Reloads Eclipse settings and ends active Eclipse events. |
-| `/adeclipse give <player> <shard|item-id> <1-64>` | Gives Eclipse items to an online player; gear must be given one at a time. |
+| `/adeclipse give <player> <shard\|item-id> <1-64>` | Gives Eclipse items to an online player; gear must be given one at a time. |
 
 `/discord reload` (also `/dc reload`) uses **`airdrop.discord.admin`**, which defaults to OP, rather than `airdrop.admin`. It is in-game only and can reload the configuration even when the Discord feature is disabled.
 
