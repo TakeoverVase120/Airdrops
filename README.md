@@ -1,21 +1,41 @@
-# Airdrops v1
+# Airdrops by NanogenLabs
 
-Configurable supply drops, landmark encounters and rewards for **Minecraft Paper 26.2 with Java 25**. Race to Common, Rare, Epic and Legendary drops, complete encounters, hold your claim and collect the loot.
+Configurable supply drops, landmark encounters and rewards for Minecraft Paper servers. Race to Common, Rare, Epic and Legendary drops, complete encounters, hold your claim and collect the loot.
 
-Public release name: **v1**. The plugin reports **1.0.0** in the server console. Earlier preview numbers were development builds.
+## Choose your Minecraft version
 
-[Download v1](https://github.com/TakeoverVase120/Airdrops/releases/tag/v1) · [Resource packs](https://github.com/TakeoverVase120/airdrops-resource-packs/releases/tag/v1) · [Report an issue](https://github.com/TakeoverVase120/Airdrops/issues)
+| Minecraft | Airdrops release | Downloads | Alternative |
+|---|---|---|---|
+| **26.2** | **v1.0.1** (plugin 1.0.1) | [GitHub release](https://github.com/TakeoverVase120/Airdrops/releases/tag/v1.0.1) | [Hangar](https://hangar.papermc.io/NanogenLabs/Airdrops/versions/1.0.1-mc26.2) |
+| **26.3** | **v1** (plugin 1.0.0) | [GitHub release](https://github.com/TakeoverVase120/Airdrops/releases/tag/mc26.3-v1) | [Hangar](https://hangar.papermc.io/NanogenLabs/Airdrops/versions/1.0.0-mc26.3) |
 
-## Choose your download
+Both builds require **Java 25**. Install only the build matching your Paper server. The original [26.2 v1 release](https://github.com/TakeoverVase120/Airdrops/releases/tag/v1) remains available as an older release.
+
+[Resource packs](https://github.com/TakeoverVase120/airdrops-resource-packs/releases/tag/v1) · [Report an issue](https://github.com/TakeoverVase120/Airdrops/issues) · [Modrinth listing](https://modrinth.com/plugin/nanogen-airdrops) (submitted for review)
+
+## Choose your package
+
+Each version's release includes its matching:
 
 | Download | Use it for |
 |---|---|
-| [AirDrops-v1.jar](https://github.com/TakeoverVase120/Airdrops/releases/download/v1/AirDrops-v1.jar) | The plugin itself; replace your existing Airdrops JAR while the server is stopped. |
-| [AirDrops-v1-Full.zip](https://github.com/TakeoverVase120/Airdrops/releases/download/v1/AirDrops-v1-Full.zip) | Installation documentation, plugin, matching source, optional expansions, companion content and resource packs. |
-| [AirDrops-v1-Upgrade.zip](https://github.com/TakeoverVase120/Airdrops/releases/download/v1/AirDrops-v1-Upgrade.zip) | Upgrade package; read its instructions and preserve existing settings and player data. |
-| [AirDrops-v1-source.zip](https://github.com/TakeoverVase120/Airdrops/releases/download/v1/AirDrops-v1-source.zip) | Matching plugin source. GitHub's automatically generated “Source code” archives contain this documentation repository instead. |
-| [SHA256SUMS.txt](https://github.com/TakeoverVase120/Airdrops/releases/download/v1/SHA256SUMS.txt) | Checksums for the release downloads. |
+| JAR | Plugin only; replace your old JAR while the server is stopped. |
+| Full ZIP | Plugin, installation documentation, matching source, seven optional expansions, companion content and resource packs. |
+| Upgrade ZIP | Plugin and merge-only update references; preserve settings and player data. |
+| Source ZIP | Matching plugin source. GitHub's automatic source archives contain this documentation repository instead. |
+| SHA256SUMS.txt / BUILD-VERIFICATION.json | Package checksums and tested build identity. |
+| LICENSE.txt | Permitted use, reserved rights and development disclosure. |
 
+## Changes in these releases
+
+- Corrected small-structure retention during falling delivery; use `keep-small-structures` to choose the behaviour.
+- Chunk refresh after schematic placement addresses invisible structures and client collision mismatch.
+- Encounter defenders return to their area and tagged undead have daylight protection.
+- Legendary landmark content includes a stronger final guardian before reward unlock.
+- Improved foliage clearance protects access while allowing decorative tree schematics.
+- Improved terrain recovery and normal shutdown cleanup.
+
+Both matching builds passed compilation, regression and isolated server checks, followed by owner-confirmed gameplay testing. This is not a guarantee for every dependency combination or every encounter variant.
 ## What Airdrops can do
 
 - Automatic scheduled drops, countdowns, manual tests and a live player tracker.
@@ -36,7 +56,7 @@ Public release name: **v1**. The plugin reports **1.0.0** in the server console.
 
 | Component | When you need it |
 |---|---|
-| Paper 26.2 and Java 25 | Release target. |
+| Matching Paper 26.2 or 26.3 build and Java 25 | Choose the separate release for your server. |
 | WorldEdit | Pasting schematic structures and landmarks. Use a build compatible with your Paper server. |
 | CreatorRuntime | Resolving the supplied Creator item rewards. The Full download includes companion content and 12 Airdrops item definitions. |
 | Vault and a supported economy provider | Content that uses economy rewards or costs. SimpleBank is a separate plugin; native Airdrops core does not require it. |
@@ -50,7 +70,7 @@ Creator Studio and CreatorBridge are authoring tools, not requirements for norma
 1. For an existing server, clear an active drop with `/airdrop clear` and check that cleanup succeeded. Stop the server normally.
 2. Back up the affected worlds and plugin data together. Keep this matching recovery set.
 3. Put **one** Airdrops JAR in `plugins/`. Move the old JAR outside that folder. Preserve the existing `plugins/Airdrops/` directory, player progress, ledgers and recovery journal.
-4. Start the server and check that Airdrops enables as `1.0.0`. A fresh data folder selects core content; existing installations retain their settings.
+4. Start the server and check that Airdrops enables as `1.0.1` for Minecraft 26.2 or `1.0.0` for Minecraft 26.3. A fresh data folder selects core content; existing installations retain their settings.
 5. Stop before installing selected expansions. For a compact layout, copy missing files from `optional-content/ready-for-compact/<pack>/Airdrops/` into `plugins/Airdrops/`. Compare and merge any existing files rather than replacing them wholesale.
 6. Install the dependencies for those expansions, then restart and check the console. Test a drop, claim, cleanup and any enabled encounter/reward features.
 
@@ -256,14 +276,23 @@ Airdrops records temporary terrain in `state/terrain-recovery.bin`. Before resto
 
 **Do not delete the recovery journal to force the next drop.** Keep the journal, affected world and plugin data together. Preserve a backup, inspect the expected/found blocks and coordinates in the log, and investigate the conflict before attempting recovery. Startup retries saved recovery. Verify a successful restoration message before resuming tests.
 
-The current v1 replacement accepts supported natural changes such as leaf distance updates, rail shape updates and grass decaying to plain dirt. Other material replacements remain protected. Identical player-placed dirt cannot be distinguished from natural grass decay.
+The current releases accept supported natural changes such as leaf distance updates, rail shape updates and grass decaying to plain dirt. Other material replacements remain protected. Identical player-placed dirt cannot be distinguished from natural grass decay.
 
-### Known shutdown limitation
+### Shutdown and recovery
 
-Stopping with an active structure can report `Terrain cleanup incomplete at shutdown ... plugin is not enabled` and retain the journal. A subsequent startup may restore it successfully. To reduce this case, clear the active drop and confirm cleanup before stopping. If recovery still fails, retain the journal and report the logs; do not assume a retained journal means cleanup finished.
+These releases include the shutdown cleanup fix. Stop the server normally and check cleanup/save messages. If a recovery conflict remains, retain the journal and matching world data, then report the log. Do not assume a retained journal means restoration finished.
 
 ## Reporting a problem
 
 Open an [issue](https://github.com/TakeoverVase120/Airdrops/issues) with the plugin build/checksum, Paper and Java versions, enabled expansions/dependencies, exact steps, relevant console messages and whether the problem occurs on Java or Bedrock. Include relevant settings after removing credentials, webhook URLs and other private data.
 
-The bundled `BUILD-VERIFICATION.json` and checksums identify the downloaded build. Public naming remains v1, so include the build identifier or checksum when comparing replacement downloads. This README documents the v1 command handlers and permission defaults; older guides under `docs/` may describe earlier behaviour.
+The bundled `BUILD-VERIFICATION.json` and checksums identify the downloaded build. Include your Minecraft target, plugin version and checksum when reporting problems. This README covers both current builds; older guides under `docs/` may describe earlier behaviour.
+## Bedrock compatibility
+
+Custom Airdrops visuals were gameplay-tested on Java and Bedrock. Bedrock access still requires a compatible Geyser/Floodgate setup. Minecraft 26.3 has known server-wide recipe and block-translation limitations with the tested Geyser setup; these are separate from Airdrops. Do not treat the plugin release as a guarantee that all new Minecraft content translates correctly.
+
+## Licence and development disclosure
+
+**All Rights Reserved.** Official builds may be installed, run and configured on your server. Redistribution and modification of Airdrops code or bundled assets require permission from NanogenLabs, to the extent NanogenLabs holds those rights. Third-party components retain their own licences; this does not revoke rights granted by earlier releases. See the matching release's `LICENSE.txt`.
+
+Originally coded by the creator, with substantial AI assistance for later features, debugging, compatibility fixes and documentation. The creator directs development, contributes schematics and tests gameplay. Release schematics and publishing text also received AI assistance.
